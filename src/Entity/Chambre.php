@@ -37,9 +37,13 @@ class Chambre
     #[ORM\OneToMany(mappedBy: 'chambre', targetEntity: Commande::class, orphanRemoval: true)]
     private Collection $commandes;
 
+    #[ORM\OneToMany(mappedBy: 'chambre', targetEntity: Slider::class)]
+    private Collection $sliders;
+
     public function __construct()
     {
         $this->commandes = new ArrayCollection();
+        $this->sliders = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,5 +151,40 @@ class Chambre
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Slider>
+     */
+    public function getSliders(): Collection
+    {
+        return $this->sliders;
+    }
+
+    public function addSlider(Slider $slider): self
+    {
+        if (!$this->sliders->contains($slider)) {
+            $this->sliders->add($slider);
+            $slider->setChambre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSlider(Slider $slider): self
+    {
+        if ($this->sliders->removeElement($slider)) {
+            // set the owning side to null (unless already changed)
+            if ($slider->getChambre() === $this) {
+                $slider->setChambre(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getTitre();
     }
 }

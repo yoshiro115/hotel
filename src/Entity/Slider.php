@@ -23,6 +23,9 @@ class Slider
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date_enregistrement = null;
 
+    #[ORM\ManyToOne(inversedBy: 'sliders')]
+    private ?Chambre $chambre = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Slider
     public function setDateEnregistrement(\DateTimeInterface $date_enregistrement): self
     {
         $this->date_enregistrement = $date_enregistrement;
+
+        return $this;
+    }
+
+    public function getChambre(): ?Chambre
+    {
+        return $this->chambre;
+    }
+
+    public function setChambre(?Chambre $chambre): self
+    {
+        $this->chambre = $chambre;
 
         return $this;
     }

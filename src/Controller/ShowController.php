@@ -2,10 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
+use App\Form\CommandeType;
 use App\Repository\ChambreRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ShowController extends AbstractController
 {
@@ -17,12 +21,35 @@ class ShowController extends AbstractController
         ]);
     }
     #[Route('/show/chambre/{id}', name: 'show_chambre')]
-    public function chambre(ChambreRepository $repo, $id): Response
+    public function chambre(ChambreRepository $repo, $id, Request $globals, EntityManagerInterface $manager): Response
     {
         $chambre = $repo->find($id);
+
+        $commande = new Commande;
         
-        return $this->render('show/chambre.html.twig', [
+        $form = $this->createForm(CommandeType::class, $commande );
+
+        $form->handleRequest($globals);
+
+        if($form->isSubmitted() && $form->isValid())
+        { 
+            $depart = $commande->getDateArrivee();
+            $fin = $commande->getDateDepart();
+            $interval = $depart->diff($fin);
+            $days = $interval->days;
+            $commande->setDateEnregistrement(new \DateTime);
+            $prix = $chambre->getPrixJournalier();
+            $prix = $prix * $days;
+            $commande->setPrixTotal($prix);
+            $commande->setChambre($chambre);
+            $manager->persist($commande);
+            $manager->flush();
+            $this->addFlash('success', "votre commande a bien été accepté");
+            return $this->redirectToRoute('app_main');
+        }
+        return $this->renderForm('show/chambre.html.twig', [
             'chambre' => $chambre,
+            'form' => $form,
         ]);
     }
 }

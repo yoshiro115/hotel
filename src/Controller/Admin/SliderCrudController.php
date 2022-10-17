@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class SliderCrudController extends AbstractCrudController
 {
@@ -24,6 +25,7 @@ class SliderCrudController extends AbstractCrudController
             TextField::new('photo'),
             IntegerField::new('ordre'),
             DateTimeField::new('date_enregistrement')->setFormat('d/M/Y à H:m:s')->hideOnForm(),
+            AssociationField::new('chambre')->renderAsNativeWidget(),
         ];
     }
     public function createEntity(string $entityFqcn)
