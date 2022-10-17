@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nos Chambres{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+
+{% for chambre in chambres %}
+    
+<a href="{{path('show_chambre', {id: chambre.id})}}">
+<div class="d-flex align-items-center justify-content-around">
+{% if chambre.id is odd %}
+  <div class="flex-shrink-0 w-50">
+    <img src="{{ chambre.photo }}" class="w-100" style="max-height:25vh; object-fit:cover;" alt="hugo le boloss">
+  </div>
+  <div class="flex-grow-1 ms-3">
+  <h5>{{chambre.titre}}</h5>
+    <p>{{ chambre.descriptioncourte }}</p>
+  </div>
+</div>
+<hr>
+{% else %}
+  
+  <div class="flex-grow-1 me-3 ">
+  <h5>{{chambre.titre}}</h5>
+    <p>{{ chambre.descriptioncourte }}</p>
+  </div>
+  <div class="flex-shrink-0 w-50">
+    <img src="{{ chambre.photo }}" class="w-100" style="max-height:25vh; object-fit:cover;" alt="hugo le boloss">
+  </div>
+</div>
+</a>
+<hr>  
+{% endif %}
+{% endfor %}
+
+</div>
+{% endblock %}
