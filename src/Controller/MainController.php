@@ -17,11 +17,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class MainController extends AbstractController
 {
     #[Route('/', name: 'app_main')]
-    public function index(SliderRepository $repo): Response
-    {
+    public function index(SliderRepository $repo, AvisRepository $avisRepo): Response
+    {   
+        $avisSpas = $avisRepo->findby(['note' => 5, "categorie" => "Spas"], ['date_enregistrement' => 'DESC'], 1);
+        $avisRestaurant = $avisRepo->findby(['note' => 5, "categorie" => "Restaurant"], ['date_enregistrement' => 'DESC'], 1);
+        $avisChambres = $avisRepo->findby(['note' => 5, "categorie" => "Chambres"], ['date_enregistrement' => 'DESC'], 1);
+        
         $slider = $repo->findAll();
         return $this->render('main/index.html.twig', [
             'photos' => $slider,
+            'avisSpas' => $avisSpas,
+            'avisRestaurant' => $avisRestaurant,
+            'avisChambres' => $avisChambres,
         ]);
     }
     #[Route('/chambres', name:'chambres')]
@@ -30,6 +37,7 @@ class MainController extends AbstractController
         $chambres = $repo->findAll();
         return $this->render('main/chambres.html.twig', [
             'chambres' =>$chambres
+            
         ]);
     }
 

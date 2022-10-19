@@ -63,6 +63,57 @@
       <a href="{{path('spas')}}" class="btn btn-primary my-2">Nos spas</a>
     </div>
   </div>
+  
+  <h4 class="text-center">Nos cliens en parlent mieux que nous</h4>
+  <div class="row justify-content-around my-4 p-3">
+    <div class="col-lg-3 text-center my-4">
+    {% for avis in avisChambres %}
+      <hr><h6 class="text-center">{{avis.categorie}}</h6>
+      
+      <figure class="my-5 text-center">
+      <blockquote class="blockquote">
+        <p>“{{avis.content}}”</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Le {{avis.dateEnregistrement|date("d/m/Y à H:i:s")}}  <br><cite title="Source Title">{{avis.nom}} {{avis.prenom}}</cite>
+      </figcaption>
+      </figure>
+      <hr>
+      {% endfor %}
+    </div>
+    <div class="col-lg-3 text-center my-4">
+    {% for avis in avisRestaurant %}
+      <hr><h6 class="text-center">{{avis.categorie}}</h6>
+      
+      <figure class="my-5 text-center">
+      <blockquote class="blockquote">
+        <p>“{{avis.content}}”</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Le {{avis.dateEnregistrement|date("d/m/Y à H:i:s")}}  <br><cite title="Source Title">{{avis.nom}} {{avis.prenom}}</cite>
+      </figcaption>
+      </figure>
+      <hr>
+      {% endfor %}
+    </div>
+    <div class="col-lg-3 text-center my-4">
+      {% for avis in avisSpas %}
+      <hr>
+      <h6 class="text-center">{{avis.categorie}}</h6>
+      
+      <figure class="my-5 text-center">
+      <blockquote class="blockquote">
+        <p>“{{avis.content}}”</p>
+      </blockquote>
+      <figcaption class="blockquote-footer">
+        Le {{avis.dateEnregistrement|date("d/m/Y à H:i:s")}}  <br><cite title="Source Title">{{avis.nom}} {{avis.prenom}}</cite>
+      </figcaption>
+      </figure>
+      <hr>
+      {% endfor %}
+    </div>
+  </div>
+
 </div>
 
 
