@@ -67,6 +67,7 @@
   <h4 class="text-center">Nos cliens en parlent mieux que nous</h4>
   <div class="row justify-content-around my-4 p-3">
     <div class="col-lg-3 text-center my-4">
+    {% if avisChambres != null %}
     {% for avis in avisChambres %}
       <hr><h6 class="text-center">{{avis.categorie}}</h6>
       
@@ -79,9 +80,10 @@
       </figcaption>
       </figure>
       <hr>
-      {% endfor %}
+      {% endfor %}{% endif %}
     </div>
     <div class="col-lg-3 text-center my-4">
+    {% if avisRestaurant != null %}
     {% for avis in avisRestaurant %}
       <hr><h6 class="text-center">{{avis.categorie}}</h6>
       
@@ -94,9 +96,10 @@
       </figcaption>
       </figure>
       <hr>
-      {% endfor %}
+      {% endfor %} {% endif %}
     </div>
     <div class="col-lg-3 text-center my-4">
+    {% if avisSpas != null %}
       {% for avis in avisSpas %}
       <hr>
       <h6 class="text-center">{{avis.categorie}}</h6>
@@ -110,7 +113,7 @@
       </figcaption>
       </figure>
       <hr>
-      {% endfor %}
+      {% endfor %} {% endif %}
     </div>
   </div>
 
