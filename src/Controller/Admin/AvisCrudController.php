@@ -30,12 +30,12 @@ class AvisCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             TextField::new('nom'),
             TextField::new('prenom'),
             TextField::new('email'),
             TextEditorField::new('content'),
-            IntegerField::new('note')->hideOnForm(),
+            IntegerField::new('note'),
             ChoiceField::new('categorie')->setChoices([
                 'Hotel' => 'Hotel',
                 'Chambres' => 'Chambres',

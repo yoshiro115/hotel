@@ -34,7 +34,7 @@ class CommandeCrudController extends AbstractCrudController
             TextField::new('nom'),
             TextField::new('telephone'),
             TextField::new('email'),
-            MoneyField::new('prix_total'),
+            MoneyField::new('prix_total')->setCurrency('EUR'),
             DateTimeField::new('date_enregistrement')->setFormat('d/M/Y à H:m:s')->hideOnForm(),
             AssociationField::new('chambre')->renderAsNativeWidget(),
             DateField::new('date_arrivee')->setFormat("d/M/Y"),

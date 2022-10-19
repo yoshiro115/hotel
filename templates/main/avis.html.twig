@@ -4,7 +4,7 @@
 
 {% block body %}
 <div class="container my-5">
-<form action="{{path('avis_filtre')}}" method='post'>
+<form action="{{path('avis_filtre')}}" method='post' class='my-5'>
 <div class="input-group">
   <select class="form-select" id="categorie" name="categorie" aria-label="Example select with button addon">
     <option selected disabled>Choose...</option>
@@ -19,7 +19,7 @@
 
 {% if categorie != null %}
 {% for comment in filtre %}
-    <div class="comment">
+    <div class="comment my-5">
         <div class="row">
         <h4 class="col-md-10">{{ comment.categorie }}</h4>
         <h4 class="col-md-2">{{ comment.note }}/5</h4>
@@ -40,7 +40,7 @@
 {% else %}
     
     {% for comment in avis %}
-        <div class="comment">
+        <div class="comment my-5">
         <div class="row">
         <h4 class="col-md-10">{{ comment.categorie }}</h4>
         <h4 class="col-md-2">{{ comment.note }}/5</h4>
