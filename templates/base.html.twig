@@ -16,12 +16,8 @@
         {% endblock %}
     </head>
     <body>
-    {% set route = path(app.request.attributes.get('_route'),
-     app.request.attributes.get('_route_params'))  %}
-     {% if app.request.attributes.get('_route_params') %}
-      {% set length = route|length  %}
-      {% set route = route|slice(0, length - 1) %}
-     {% endif %}
+    {% set route = app.request.get('_route')  %}
+     
      
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
@@ -34,37 +30,37 @@
         <li class="nav-item">
        
         
-          <a class="nav-link {% if route == '/' %}active{% endif %}" href="{{path('app_main')}}">Accueil
+          <a class="nav-link {% if route == 'app_main' %}active{% endif %}" href="{{path('app_main')}}">Accueil
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle {% if route == '/chambres' or route == '/show/chambre/' %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Chambre</a>
+          <a class="nav-link dropdown-toggle {% if route == 'chambres' or route == 'show_chambre' or route == 'show_chambre_titre' %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Chambre</a>
           <div class="dropdown-menu">
           <a class="dropdown-item" href="{{path('chambres')}}">Nos Chambres</a>
           <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Classique</a>
-            <a class="dropdown-item" href="#">Confort</a>
-            <a class="dropdown-item" href="#">Suite</a>
+            <a class="dropdown-item" href="{{path('show_chambre_titre', {titre: "Chambre Classique"})}}">Classique</a>
+            <a class="dropdown-item" href="{{path('show_chambre_titre', {titre: "Chambre Confort"})}}">Confort</a>
+            <a class="dropdown-item" href="{{path('show_chambre_titre', {titre: "Chambre Suite"})}}">Suite</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if route == '/cartes' %}active{% endif %}" href="{{path('cartes')}}">Restaurant</a>
+          <a class="nav-link {% if route == 'cartes' %}active{% endif %}" href="{{path('cartes')}}">Restaurant</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if route == '/spas' %}active{% endif %}" href="{{path('spas')}}">Spas</a>
+          <a class="nav-link {% if route == 'spas' %}active{% endif %}" href="{{path('spas')}}">Spas</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle {% if route == '/contact' or route == '/qui-sommes-nous' or route == '/acces' %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hôtel</a>
+          <a class="nav-link dropdown-toggle {% if route == 'contact' or route == 'who' or route == 'acces' %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hôtel</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{{path('who')}}">qui sommes-nous?</a>
             <a class="dropdown-item" href="{{path('acces')}}">Accès</a>
             <a class="dropdown-item" href="{{path('contact')}}">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if route == '/actu' %}active{% endif %}" href="{{path('actu')}}">Actualités</a>
+          <a class="nav-link {% if route == 'actu' %}active{% endif %}" href="{{path('actu')}}">Actualités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if route == '/avis' %}active{% endif %}" href="{{path('avis')}}">Avis</a>
+          <a class="nav-link {% if route == 'avis' %}active{% endif %}" href="{{path('avis')}}">Avis</a>
         </li>
 
       </ul>

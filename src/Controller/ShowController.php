@@ -21,11 +21,19 @@ class ShowController extends AbstractController
             'controller_name' => 'ShowController',
         ]);
     }
+    #[Route('/chambre/{titre}', name:'show_chambre_titre')]
     #[Route('/show/chambre/{id}', name: 'show_chambre')]
-    public function chambre(ChambreRepository $repo, $id, Request $globals, EntityManagerInterface $manager): Response
-    {
-        $chambre = $repo->find($id);
-
+    public function chambre(ChambreRepository $repo, Request $globals, EntityManagerInterface $manager, $id = null, $titre = null): Response
+    {   
+        if($id!=null)
+        {
+            $chambre = $repo->find($id);
+        }
+        else
+        {
+            $titre = str_replace('%20', ' ', $titre);
+            $chambre = $repo->findOneBy(['titre' =>  $titre]);
+        }
         $commande = new Commande;
         
         $form = $this->createForm(CommandeType::class, $commande );
@@ -53,6 +61,41 @@ class ShowController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    
+    // public function chambreTitre(ChambreRepository $repo, Request $globals, EntityManagerInterface $manager, $titre): Response
+    // {   
+        
+    //     $commande = new Commande;
+        
+    //     $form = $this->createForm(CommandeType::class, $commande );
+
+    //     $form->handleRequest($globals);
+
+    //     if($form->isSubmitted() && $form->isValid())
+    //     { 
+    //         $depart = $commande->getDateArrivee();
+    //         $fin = $commande->getDateDepart();
+    //         $interval = $depart->diff($fin);
+    //         $days = $interval->days;
+    //         $commande->setDateEnregistrement(new \DateTime);
+    //         $prix = $chambre->getPrixJournalier();
+    //         $prix = $prix * $days;
+    //         $commande->setPrixTotal($prix);
+    //         $commande->setChambre($chambre);
+    //         $manager->persist($commande);
+    //         $manager->flush();
+    //         $this->addFlash('success', "votre commande a bien été accepté");
+    //         return $this->redirectToRoute('app_main');
+    //     }
+    //     return $this->renderForm('show/chambre.html.twig', [
+    //         'chambre' => $chambre,
+    //         'form' => $form,
+    //     ]);
+    // }
+
+
+
     #[Route('/contact', name:'contact')]
     #[Route('/qui-sommes-nous', name:'who')]
     public function who(Request $globals, $contact = null): Response
