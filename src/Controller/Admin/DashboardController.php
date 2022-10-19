@@ -47,7 +47,7 @@ class DashboardController extends AbstractDashboardController
              MenuItem::linkToRoute('Accueil', 'fa fa-home', 'app_main'),
              MenuItem::section("Hotel"),
             MenuItem::linkToCrud('Chambre', 'fas fa-clipboard', Chambre::class),
-            MenuItem::linkToCrud('Avis', 'fas fa-paper', Avis::class),
+            MenuItem::linkToCrud('Avis', 'fas fa-pen', Avis::class),
             MenuItem::section('Membres'),
            MenuItem::linkToCrud('utilisateurs', 'fas fa-user', Membre::class),
            MenuItem::section('Commandes'),
