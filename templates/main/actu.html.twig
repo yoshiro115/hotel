@@ -1,0 +1,24 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Actu - Cortez{% endblock %}
+
+{% block body %}
+
+
+<div class="container d-flex my-5">
+<div class="row justify-content-between">
+{% for item in rssItems %}
+    
+<div class="card bg-secondary mb-3 col-md-4 " style="max-width: 20rem;">
+  <div class="card-body">
+    <h4><a href="{{item.link}}" class="text-decoration-none">{{item.title}}</a></h4>
+    <p class="card-text">{{item.description|raw}}</p>
+    <h6 class="card-subtitle">{{item.pubDate}}</h4>
+  </div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

@@ -2,11 +2,17 @@
 
 namespace App\Controller;
 
-use App\Repository\ChambreRepository;
+use App\Entity\Avis;
+use App\Form\AvisType;
+use Doctrine\ORM\EntityManager;
+use App\Repository\AvisRepository;
 use App\Repository\SliderRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ChambreRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class MainController extends AbstractController
 {
@@ -26,4 +32,64 @@ class MainController extends AbstractController
             'chambres' =>$chambres
         ]);
     }
+
+    #[Route('/cartes', name:'cartes')]
+    public function cartes(): Response
+    {
+        
+        return $this->render('main/cartes.html.twig');
+    }
+
+    #[Route('/spas', name:'spas')]
+    public function spas(ChambreRepository $repo)
+    {
+        $spas = $repo->findOneBy(["titre" => "spas"]);
+        return $this->render('main/spas.html.twig', [
+            "chambre" => $spas,
+        ]);
+    }
+    #[Route('/avis/filtre', name:'avis_filtre')]
+    #[Route('/avis', name:'avis')]
+    public function avis(EntityManagerInterface $manager, Request $globals, AvisRepository $repo, $categorie = null)
+    {
+        
+        if($globals->request->get('categorie') != null){
+            $categorie= $globals->request->get('categorie');
+        }
+        $avisFiltre= $repo->findBy(["categorie" => $categorie]);
+        
+        $avis = $repo->findAll();
+
+        $comment = new Avis;
+        $form=$this->createForm(AvisType::class, $comment);
+        $form->handleRequest($globals);
+
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $comment->setDateEnregistrement(new \DateTime);
+            $manager->persist($comment);
+            $manager->flush();
+            return $this->redirectToRoute("avis",[
+                'avis' => $avis,
+                'form' => $form,
+            ]);
+        }
+
+        return $this->renderForm('main/avis.html.twig',[
+            'avis' => $avis,
+            'form' => $form,
+            'categorie'=>$categorie,
+            'filtre'=> $avisFiltre
+        ]);
+
+    }
+    #[Route('/actu', name:'actu')]
+    public function actu()
+    {
+        $rss = simplexml_load_file('https://www.lhotellerie-restauration.fr/rss/actu_rss.xml?xtor=RSS-1');
+        return $this->render('main/actu.html.twig', [
+            'rssItems' => $rss->channel->item,
+]);
+    }
+
 }

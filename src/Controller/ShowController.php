@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Commande;
 use App\Form\CommandeType;
+use App\Form\ContactType;
 use App\Repository\ChambreRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,5 +52,32 @@ class ShowController extends AbstractController
             'chambre' => $chambre,
             'form' => $form,
         ]);
+    }
+    #[Route('/contact', name:'contact')]
+    #[Route('/qui-sommes-nous', name:'who')]
+    public function who(Request $globals, $contact = null){
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($globals);
+        if($form->isSubmitted() && $form->isValid())
+        { 
+            $this->addFlash('success', "votre demande de contact a bien été accepté");
+            return $this->redirectToRoute('app_main');
+        }
+        $routeName = $globals->get('_route');
+        if($routeName == 'contact')
+        {
+            $contact = 1;
+        }
+        
+        return $this->renderForm('show/who.html.twig', [
+            'contact' => $form,
+            'affiche' =>$contact
+        ]);
+        
+    }
+    #[Route('/acces', name: 'acces')]
+    public function acces(): Response
+    {
+        return $this->render('show/acces.html.twig');
     }
 }

@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis - Cortez{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+<form action="{{path('avis_filtre')}}" method='post'>
+<div class="input-group">
+  <select class="form-select" id="categorie" name="categorie" aria-label="Example select with button addon">
+    <option selected disabled>Choose...</option>
+    <option value="Hotel">Hôtel</option>
+    <option value="Chambres">Chambres</option>
+    <option value="Restaurant">Restaurant</option>
+    <option value="Spas">Spas</option>
+  </select>
+  <button class="btn btn-secondary" type="submit">filtrer</button>
+</div>
+</form>
+
+{% if categorie != null %}
+{% for comment in filtre %}
+    <div class="comment">
+        <div class="row">
+        <h4 class="col-md-10">{{ comment.categorie }}</h4>
+        <h4 class="col-md-2">{{ comment.note }}/5</h4>
+        </div>
+            <div class="row">
+                <div class="col-md-3">
+                    {{ comment.prenom }} {{ comment.nom }} <br> (<small>{{ comment.dateEnregistrement|date('d/m/Y à H:i:s') }}</small>)
+                </div>
+                <div class="col-md-9">
+                    {{ comment.content|raw }}
+                </div>
+            </div>
+        </div>
+        <hr>
+
+
+{% endfor %}
+{% else %}
+    
+    {% for comment in avis %}
+        <div class="comment">
+        <div class="row">
+        <h4 class="col-md-10">{{ comment.categorie }}</h4>
+        <h4 class="col-md-2">{{ comment.note }}/5</h4>
+        </div>
+            <div class="row">
+                <div class="col-md-3">
+                    {{ comment.prenom }} {{ comment.nom }} <br> (<small>{{ comment.dateEnregistrement|date('d/m/Y à H:i:s') }}</small>)
+                </div>
+                <div class="col-md-9">
+                    {{ comment.content|raw }}
+                </div>
+            </div>
+        </div>
+        <hr>
+        
+    {% endfor %}
+
+{% endif %}
+<section class='container mt-5'>
+    {{form_start(form, {
+    attr: {novalidate: 'novalidate'}
+    })}}
+<div class="row">
+    <div class="col-md-8">
+    {{form_row(form.categorie)}}
+    </div>
+    <div class="col-md-4">
+    {{form_row(form.note)}}
+    </div>
+</div>
+<div class="row">
+<div class="col-md-6">
+{{form_row(form.nom)}}
+</div>
+<div class="col-md-6">
+{{form_row(form.prenom)}}
+</div>
+</div>
+{{form_row(form.email)}}
+
+{{form_widget(form.content, {
+    attr: {
+        placeholder: "contenu de votre avis"
+    }
+})}}
+
+<button type="submit" class="btn btn-primary mt-2">postez un avis</button>
+
+{{form_end(form)}}
+</section>
+</div>
+{% endblock %}

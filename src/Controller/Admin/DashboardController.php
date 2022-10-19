@@ -8,6 +8,7 @@ use App\Entity\Chambre;
 use App\Entity\Commande;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\ChambreCrudController;
+use App\Entity\Avis;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -44,8 +45,9 @@ class DashboardController extends AbstractDashboardController
              MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
              MenuItem::section("Back to website"),
              MenuItem::linkToRoute('Accueil', 'fa fa-home', 'app_main'),
-             MenuItem::section("Chambre"),
+             MenuItem::section("Hotel"),
             MenuItem::linkToCrud('Chambre', 'fas fa-clipboard', Chambre::class),
+            MenuItem::linkToCrud('Avis', 'fas fa-paper', Avis::class),
             MenuItem::section('Membres'),
            MenuItem::linkToCrud('utilisateurs', 'fas fa-user', Membre::class),
            MenuItem::section('Commandes'),

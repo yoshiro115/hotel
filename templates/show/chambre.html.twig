@@ -10,7 +10,7 @@
             {% for slider in chambre.sliders %}
                 
             
-            <div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}">
+            <div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}" data-bs-interval="5000">
             <img src="{{ slider.photo }}" class="d-block w-100" alt="">
         </div>
             

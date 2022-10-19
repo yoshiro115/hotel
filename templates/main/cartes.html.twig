@@ -1,0 +1,216 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Restauration{% endblock %}
+
+{% block body %}
+<div class="container my-5" style="min-height:70vh;">
+
+    
+  
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" data-bs-toggle="tab" href="#ptitdej" aria-selected="false" role="tab" tabindex="-1"><h2>Petit Déjeuner</h2></a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" data-bs-toggle="tab" href="#dej" aria-selected="true" role="tab"><h2>Déjeuner / Lunch</h2></a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" data-bs-toggle="tab"href="#diner" aria-selected="false" tabindex="-1" role="tab"><h2>Diner</h2></a>
+  </li>
+  
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade" id="ptitdej" role="tabpanel">
+    <img src="https://www.dubruitdanslacuisine.fr/media/mageplaza/blog/post/r/e/recette-oeuf-benedicte-du-bruit-dans-la-cuisine.jpg" class="w-100" style="max-height:25vh; object-fit:cover;" alt="hugo le boloss">
+        <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+       <h5> Le petit-déjeuner à la carte</h5>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Œufs Bénédicte traditionnels</div><div class="col-md-2 text-end">28€</div></div>
+        <div class="row"><div class="col-md-10">Œufs Bénédicte au saumon fumé</div><div class="col-md-2 text-end">32€</div></div>
+        <div class="row"><div class="col-md-10">Œuf bio « Prestige » au homard</div><div class="col-md-2 text-end">68€</div></div>
+        <div class="row"><div class="col-md-10">Œufs bio brouillés à la truffe noire</div><div class="col-md-2 text-end">59€</div></div>
+        <div class="row"><div class="col-md-10">Omelette au homard bleu</div><div class="col-md-2 text-end">90€</div></div>
+        <div class="row"><div class="col-md-10">Jambon ibérique Bellota</div><div class="col-md-2 text-end">55€</div></div>
+        <div class="row"><div class="col-md-10">Avocat frais émincé</div><div class="col-md-2 text-end">12€</div></div>
+        <div class="row"><div class="col-md-10">Assiette de fruits rouges</div><div class="col-md-2 text-end">38€</div></div>
+        <div class="row"><div class="col-md-10">Crêpe, gauffre, pancake avec sucre, confiture ou sirop d’érable</div><div class="col-md-2 text-end">22€</div></div>
+        <div class="row"><div class="col-md-10">Pain perdu traditionnel</div><div class="col-md-2 text-end">25€</div></div>
+        <div class="row"><div class="col-md-10">Corbeille de pain sans gluten</div><div class="col-md-2 text-end">20€</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <h5>Les boissons chaudes</h5>
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Espresso, Décaféiné</div><div class="col-md-2 text-end">12€</div></div>
+        <div class="row"><div class="col-md-10">Café américain</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Cappuccino, Café latte, Double espresso</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Thé, Infusion</div><div class="col-md-2 text-end">15€</div></div>
+        <div class="row"><div class="col-md-10">Chocolat chaud</div><div class="col-md-2 text-end">18€</div></div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+       <h5>Les boissons fraîches</h5> 
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <div class="row"><div class="col-md-10">Jus de fruits frais 25cl - Orange, pamplemousse, citron</div><div class="col-md-2 text-end">16€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Brut Réserve Ritz</div><div class="col-md-2 text-end">28€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Blanc de blancs Réserve Ritz</div><div class="col-md-2 text-end">35€</div></div>
+        <div class="row"><div class="col-md-10">Champagne Barons de Rothschild Rosé Réserve Ritz</div><div class="col-md-2 text-end">35€</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  <div class="tab-pane fade active show" id="dej" role="tabpanel">
+    
+    <img src="https://kissmychef.com/wp-content/uploads/2020/07/onglet.png" class="w-100" style="max-height:25vh; object-fit:cover;" alt="hugo le boloss">
+        <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <h5>Lunch / Entrées</h5>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <hr>
+        <h6>Lunch</h6>
+        <hr>
+        <div class="row"><div class="col-md-10">Club sandwich à la volaille - Tomates, oeufs bios, laitue, bacon et pommes frites maison</div><div class="col-md-2 text-end">55€</div></div>
+        <div class="row"><div class="col-md-10">Club sandwich au homard bleu - Compotée d’oignon, pousses d’épinards, tomates confites et pommes frites maison</div><div class="col-md-2 text-end">110€</div></div>
+        <div class="row"><div class="col-md-10">Bœuf en tartare au couteau - pommes frites maison et cœur de laitue</div><div class="col-md-2 text-end">55€</div></div>
+        <div class="row"><div class="col-md-10">Croque-Monsieur - Au jambon de veau, pommes frites maison et cœur de laitue</div><div class="col-md-2 text-end">55€</div></div>
+        <hr>
+        <h6>Entrées</h6>
+        <hr>
+        <div class="row"><div class="col-md-10">Artichaut poivrade en salade cru et cuit, noisettes du Piémont et vinaigrette au pralin</div><div class="col-md-2 text-end">45€</div></div>
+        <div class="row"><div class="col-md-10">Avocat sur pain de campagne, coriandre, grenade, œuf poché bio</div><div class="col-md-2 text-end">38€</div></div>
+        <div class="row"><div class="col-md-10">Tomate de saison farcie à la burrata, glacée aux épices douces et coulis vert fumé</div><div class="col-md-2 text-end">32€</div></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <h5>Les plats</h5>
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Linguine, champignons de Paris, pousses d'épinards et truffes de saison</div><div class="col-md-2 text-end">42€</div></div>
+        <div class="row"><div class="col-md-10">Sole, goujonnette croustillante, guacamole de brocolis et chips de légumes</div><div class="col-md-2 text-end">125€</div></div>
+        <div class="row"><div class="col-md-10">Saint-Pierre cuit au plat, riz pilaf, avocat, vinaigrette d'orange à la coriandre et jus de volaille acidulé</div><div class="col-md-2 text-end">88€</div></div>
+        <div class="row"><div class="col-md-10">Côte de veau viennoise, pommes de terre grenaille rôties, roquette, parmesan et sauce tartare</div><div class="col-md-2 text-end">78€</div></div>
+        <div class="row"><div class="col-md-10">Filet de bœuf de race normande grillé ou poêlé, purée de pommes de terre, compotée d'échalotes au poivre de Phu Quoc</div><div class="col-md-2 text-end">98€</div></div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+       <h5>Les fromages / desserts</h5> 
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <div class="row"><div class="col-md-10">Assiette de fromages affinés</div><div class="col-md-2 text-end">36€</div></div>
+        <div class="row"><div class="col-md-10">Sablé viennois</div><div class="col-md-2 text-end">24€</div></div>
+        <div class="row"><div class="col-md-10">Mille-feuille vanille</div><div class="col-md-2 text-end">24€</div></div>
+        <div class="row"><div class="col-md-10">Entremets madeleine</div><div class="col-md-2 text-end">24€</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  </div>
+  <div class="tab-pane fade" id="diner" role="tabpanel">
+    
+
+     <img src="https://www.normandie-tourisme.fr/wp-content/uploads/2021/10/plat-restaurant-AdobeStock-Redzen.jpg" class="w-100" style="max-height:25vh; object-fit:cover;" alt="hugo le boloss">
+        <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+       <h5> Entrées</h5>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Vitello Tonnato aux agrumes, olives de Kalamata, roquette, parmesan et pistaches</div><div class="col-md-2 text-end">55€</div></div>
+        <div class="row"><div class="col-md-10">Homard bleu poché à la nage, quinoa bio et légumes de notre potager, huile d'olive citron</div><div class="col-md-2 text-end">115€</div></div>
+        <div class="row"><div class="col-md-10">Champignons des bois, aubergine fumée, œuf de caille et girolles en pickles, jus au café</div><div class="col-md-2 text-end">48€</div></div>
+        <div class="row"><div class="col-md-10">Avocat au tourteau</div><div class="col-md-2 text-end">48€</div></div>
+        <div class="row"><div class="col-md-10">Artichaut poivrade en salade cru et cuit, noisettes du Piémont et vinaigrette au pralin</div><div class="col-md-2 text-end">45€</div></div>
+        <div class="row"><div class="col-md-10">Avocat sur pain de campagne, coriandre, grenade, œuf poché bio</div><div class="col-md-2 text-end">38€</div></div>
+        <div class="row"><div class="col-md-10">Tomate de saison farcie à la burrata, glacée aux épices douces et coulis vert fumé</div><div class="col-md-2 text-end">32€</div></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+       <h5>Les plats</h5> 
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <div class="row"><div class="col-md-10">Linguine, gambas rôties, bisque de homard, ail et piment</div><div class="col-md-2 text-end">48€</div></div>
+        <div class="row"><div class="col-md-10">Sole, goujonnette croustillante, guacamole de brocolis et chips de légumes</div><div class="col-md-2 text-end">125€</div></div>
+        <div class="row"><div class="col-md-10">Saint-Pierre cuit au plat, riz pilaf, avocat, vinaigrette d'orange à la coriandre et jus de volaille acidulé</div><div class="col-md-2 text-end">88€</div></div>
+        <div class="row"><div class="col-md-10">Dos de cabillaud rôti, ragoût de coco de Paimpol au cédrat, couteaux et piments végétariens</div><div class="col-md-2 text-end">78€</div></div>
+        <div class="row"><div class="col-md-10">Suprême de volaille de Bresse rôti, déclinaison de carottes au beurre noisette, jus de volaille</div><div class="col-md-2 text-end">88€</div></div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+       <h5> Les fromages / desserts</h5>
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+         <div class="row"><div class="col-md-10">Assiette de fromages affinés</div><div class="col-md-2 text-end">36€</div></div>
+        <div class="row"><div class="col-md-10">Cheesecake myrtille</div><div class="col-md-2 text-end">24€</div></div>
+        <div class="row"><div class="col-md-10">Riz au lait caramel</div><div class="col-md-2 text-end">24€</div></div>
+        <div class="row"><div class="col-md-10">La noisette</div><div class="col-md-2 text-end">24€</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+</div>
+{% endblock %}

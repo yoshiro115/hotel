@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Qui sommes-nous ?{% endblock %}
+
+{% block body %}
+{% if affiche == null %}
+
+    <div class="row bg-dark ">
+        <div class="col-md-10">
+            <h2 class="ps-5 pt-5 text-white">Qui sommes-nous?</h2>
+            <div class="row ps-5 pt-5">
+                <div class="col-md-6">
+                    <h3 class="text-warning">22 ans</h3>
+                    <h5 class="text-warning">d'expérience</h5>
+                    <p class="text-white pe-5 pt-3"><st class="fw-bold fst-italic"> Une expérience de 22 ans dans le développement et la gestion d’hôtels à Los Angeles</st>
+                    assure à l'Hôtel Cortez son savoir-faire dans le secteur de l’hébergement touristique américain. L'Hôtel Cortez est dirigée par une équipe expérimentée, avec de fortes garanties financières, et capable de mener à bien ses projets. Archides bénéficie de la meilleure réputation sur le marché avec de nombreuses recommandations positives </p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-warning">un standard</h5>
+                    <h3 class="text-warning">5 étoiles</h3>
+                    <p class="text-white pe-5 pt-2"><st class="fw-bold fst-italic">Des petites attentions, un charme indicible, des douceurs luxueuses…</st>
+                    L'Hôtel Cortez s’est inspiré du romantisme pour peaufiner son accueil et ses services, discrets et sur-mesure. Tout est pensé pour vous faire sentir unique, répondre à tous vos désirs et vous apporter de la légèreté et du bien-être le temps de votre séjour.
+                    Du petit-déjeuner, au bar en passant par le spa, il est impossible de ne pas succomber à la délicatesse de chaque instant passé en ses murs.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <img src="https://images.squarespace-cdn.com/content/v1/5beaec59cc8fed13655dc57c/1542558408285-Q7JVR16T3ANEJWN719ET/0004_AHS5setphtLobbyWeb123.jpg?format=1500w" alt="escalier cortez" class="img-fluid">
+        </div>
+    </div>
+
+    <div class="container text-center mt-5">
+    
+        <h2 class="text-center">Le Directeur</h2>
+
+    
+    
+        <div class="my-5 text-center " >
+            <img src="https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_1280.jpg" alt="" class="img-fluid" style="max-height:30vh;">
+            <h4 class="mt-2">Ferreira Vincent</h4>
+            <h6 class="text-muted">Directeur de l'Hôtel Cortez</h6>
+            <h6>06 52 48 40 35</h6>
+            <h6>pdg@cortez.com</h6>
+            <div class="d-flex justify-content-center">
+            <p class="col-md-5 px-5 mx-5">Après des classes préparatoires à Versailles au lycée Sainte Geneviève, Vincent est diplômé de l’ESSEC et de l’Université de Pékin. Vincent est un entrepreneur passé par un fonds immobilier. Vincent s’occupe de la partie immobilière du Groupe, et supervise les opérations</p>
+        </div></div>
+        
+    </div>
+
+    <div class="d-flex bg-dark align-items-center">
+        <img src="https://images.squarespace-cdn.com/content/v1/5beaec59cc8fed13655dc57c/1542558455167-66TBCVL7Z9ODENC0798F/0013_AHS5setphtLobbyWeb133.jpg?format=1500w" alt="" class="col-md-4" style="max-height:90vh; object-fit:cover;">
+        
+        <section class='col-md-8 mt-5 px-4 text-white' >
+        <h3 class="my-5 text-warning">Contactez-nous</h3>
+        {{form_start(contact, {
+            attr: {novalidate: 'novalidate'}
+            })}}
+        <div class="row">
+        <div class="col-md-6">
+        {{form_row(contact.nom)}}
+        </div>
+        <div class="col-md-6">
+        {{form_row(contact.prenom)}}
+        </div>
+        </div>
+        {{form_row(contact.email)}}
+        {{form_row(contact.telephone)}}
+        {{form_row(contact.categorie)}}
+        {{form_row(contact.sujet)}}
+        {{form_row(contact.content, {
+            label: "Votre demande",
+            attr: {
+                rows: "10",
+                placeholder: "contenu de votre demande"
+            }
+        })}}
+
+        <button type="submit" class="btn btn-light mt-4 mb-2 col-md-12">envoyez</button>
+
+        {{form_end(contact)}}
+        </section>
+
+    </div>
+{% else %}
+        
+        <div class="row bg-dark align-items-center">
+            <img src="https://images.squarespace-cdn.com/content/v1/5beaec59cc8fed13655dc57c/1542558455167-66TBCVL7Z9ODENC0798F/0013_AHS5setphtLobbyWeb133.jpg?format=1500w" alt="" class="col-xl-4" style="min-height:100vh; object-fit: cover;">
+           
+        <div class='col-xl-8 mt-1 text-white px-4' >
+            <h3 class="my-5 text-warning">Contactez-nous</h3>
+            {{form_start(contact, {
+                attr: {novalidate: 'novalidate'}
+                })}}
+            <div class="row">
+                <div class="col-md-6">
+                {{form_row(contact.nom)}}
+                </div>
+                <div class="col-md-6">
+                {{form_row(contact.prenom)}}
+                </div>
+            </div>
+            {{form_row(contact.email)}}
+            {{form_row(contact.telephone)}}
+            {{form_row(contact.categorie)}}
+            {{form_row(contact.sujet)}}
+            {{form_row(contact.content, {
+                label: "Votre demande",
+                attr: {
+                    rows: "10",
+                    placeholder: "contenu de votre demande"
+                }
+            })}}
+
+            <button type="submit" class="btn btn-light mt-3 mb-5 col-md-12">envoyez</button>
+
+            {{form_end(contact)}}
+        </div>
+
+    </div>
+{% endif %}
+{% endblock %}

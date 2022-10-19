@@ -1,0 +1,64 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nos Spas{% endblock %}
+
+{% block body %}
+
+
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            {% for slider in chambre.sliders %}
+                
+            
+            <div class="carousel-item {% if slider.ordre == 1 %} active {% endif %}" data-bs-interval="3500">
+            <img src="{{ slider.photo }}" class="d-block w-100" style="max-height:50vh; object-fit:cover;" alt="">
+        </div>
+            
+
+        {% endfor %}
+            
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+<div class="container my-5">
+
+    <h2 class="text-center my-3">SOINS SIGNATURES BY LA COLLINE</h2>
+    <div class="my-4">
+    <p class="text-center">C’est au pied des Alpes suisses, au cœur de collines et de lacs d’une grande pureté, que La Colline développe des soins d’exception, alliant efficacité et sensorialité. Son complexe emblématique, le CMAge®, signe ses 12 collections dont la subtilité des textures et des fragrances offre une expérience unique. Chaque rituel La Colline, avec sa gestuelle singulière, est une invitation à vivre le Swiss Bliss : une parenthèse enchantée inspirée par la nature et l’art de vivre suisse.</p>
+    </div>
+    <div class="container my-5">
+      <div class="row my-5">
+      <div class="col-md-4">
+        <img src="https://nolinskiparis.com/wp-content/uploads/2022/06/massage-spa-nolinski-by-la-colline-hotel-5-etoiles-luxe-paris-6-simon-detraz-960x1280.jpg" alt="" class="rounded mx-auto d-block img-fluid">
+        <h4 class="my-4">ESCALE À ALTETSCH</h4>
+        <p>Ce soin du visage anti-âge personnalisé est adapté à chaque besoin. Une réelle randonnée sensorielle hors du temps dans les Alpes suisses. Infusé de sérum, le visage est massé avec délicatesse et efficacité. En quelques gestes, la peau est liftée et repulpée. Elle retrouve douceur, tonicité et densité. Le visage resplendit de luminosité.</p>
+      </div>
+      <div class="col-md-4">
+        <img src="https://nolinskiparis.com/wp-content/uploads/2022/06/massage-spa-nolinski-by-la-colline-hotel-5-etoiles-luxe-paris-16-simon-detraz-960x1280.jpg" alt="" class="rounded mx-auto d-block img-fluid">
+        <h4 class="my-4">BEAUTÉ</h4>
+        <p>Massage sur-mesure, exfoliation, soin du visage, coiffure et une esthéticienne attitrée pour répondre à tous vos besoins le temps d’une demi-journée (soins corps, pédicure, manucure, maquillage, épilation, etc.), une mise en beauté absolue pour préparer un grand moment et se sentir unique.</p>
+        </div>
+      <div class="col-md-4">
+        <img src="https://nolinskiparis.com/wp-content/uploads/2022/06/massage-spa-nolinski-by-la-colline-hotel-5-etoiles-luxe-paris-1-simon-detraz-960x1280.jpg" alt="" class="rounded mx-auto d-block img-fluid">
+        <h4 class="my-4">IMMUNITY BOOSTER</h4>
+        <p>Pour lutter contre le stress, stimuler l’immunité et éliminer les toxines. Inhalations aux huiles essentielles stimulantes, modelage à la bougie chaude, enveloppement tonifiant au miel de Manuka et aux sels de l’Himalaya. Pour une activation en profondeur des actifs naturels, l’expérience se termine par une séance au hammam.</p>
+        </div>
+      </div>
+      
+    
+    </div>
+
+</div>
+
+{% endblock %}

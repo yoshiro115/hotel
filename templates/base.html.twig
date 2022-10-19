@@ -16,21 +16,30 @@
         {% endblock %}
     </head>
     <body>
+    {% set route = path(app.request.attributes.get('_route'),
+     app.request.attributes.get('_route_params'))  %}
+     {% if app.request.attributes.get('_route_params') %}
+      {% set length = route|length  %}
+      {% set route = route|slice(0, length - 1) %}
+     {% endif %}
+     
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{path('app_main')}}">Cortez</a>
+    <a class="navbar-brand" href="{{path('app_main')}}">Hôtel Cortez</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link active" href="{{path('app_main')}}">Accueil
+       
+        
+          <a class="nav-link {% if route == '/' %}active{% endif %}" href="{{path('app_main')}}">Accueil
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Chambre</a>
+          <a class="nav-link dropdown-toggle {% if route == '/chambres' or route == '/show/chambre/' %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Chambre</a>
           <div class="dropdown-menu">
           <a class="dropdown-item" href="{{path('chambres')}}">Nos Chambres</a>
           <div class="dropdown-divider"></div>
@@ -38,33 +47,24 @@
             <a class="dropdown-item" href="#">Confort</a>
             <a class="dropdown-item" href="#">Suite</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Restaurant</a>
-          <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Nos Cartes</a>
-          <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Carte Brasserie</a>
-            <a class="dropdown-item" href="#">Carte Dégustation</a>
-            <a class="dropdown-item" href="#">Carte Restaurant</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Spa</a>
-          <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Nos Spas</a>
-          <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Spa avec soin Détente</a>
-            <a class="dropdown-item" href="#">Spa avec soin Relaxant</a>
-            <a class="dropdown-item" href="#">Spa avec soin Plaisir</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hôtel</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">qui sommes-nous?</a>
-            <a class="dropdown-item" href="#">Accès</a>
-            <a class="dropdown-item" href="#">Contact</a>
+        <li class="nav-item">
+          <a class="nav-link {% if route == '/cartes' %}active{% endif %}" href="{{path('cartes')}}">Restaurant</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Actualités</a>
+          <a class="nav-link {% if route == '/spas' %}active{% endif %}" href="{{path('spas')}}">Spas</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle {% if route == '/contact' or route == '/qui-sommes-nous' or route == '/acces' %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hôtel</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{path('who')}}">qui sommes-nous?</a>
+            <a class="dropdown-item" href="{{path('acces')}}">Accès</a>
+            <a class="dropdown-item" href="{{path('contact')}}">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if route == '/actu' %}active{% endif %}" href="{{path('actu')}}">Actualités</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if route == '/avis' %}active{% endif %}" href="{{path('avis')}}">Avis</a>
         </li>
 
       </ul>
@@ -118,9 +118,7 @@
               Hôtel Cortez
             </h6>
             <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+              Des petites attentions, un charme indicible, des douceurs luxueuses…
             </p>
           </div>
           <!-- Grid column -->
@@ -131,22 +129,22 @@
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
             <h6 class="text-uppercase mb-4 font-weight-bold text-light">Liens divers</h6>
             <p>
-              <a class="text-white">Mentions Légales</a>
+              <a class="text-white text-decoration-none" href="">Mentions Légales</a>
             </p>
             <p>
-              <a class="text-white">Conditions Générales de Vente</a>
+              <a class="text-white text-decoration-none" href="">Conditions Générales de Vente</a>
             </p>
             <p>
-              <a class="text-white">Plan du site</a>
+              <a class="text-white text-decoration-none" href="">Plan du site</a>
             </p>
             <p>
-              <a class="text-white">Imprimer la page</a>
+              <a class="text-white text-decoration-none" href="">Imprimer la page</a>
             </p>
             <p>
-              <a class="text-white">S'inscrire à la newsletter</a>
+              <a class="text-white text-decoration-none" href="">S'inscrire à la newsletter</a>
             </p>
             <p>
-              <a class="text-white">Partage</a>
+              <a class="text-white text-decoration-none" href="">Partage</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -159,10 +157,10 @@
               Option
             </h6>
             <p>
-              <a class="text-white">Langue Fr/En</a>
+              <a class="text-white text-decoration-none">Langue Fr/En</a>
             </p>
             <p>
-              <a class="text-white">Panier</a>
+              <a class="text-white text-decoration-none">Panier</a>
             </p>
           </div>
 
@@ -171,7 +169,7 @@
 
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-            <h6 class="text-uppercase mb-4 font-weight-bold text-light"><a class="font-weight-bold text-light" href="">Contact</a></h6>
+            <h6 class="text-uppercase mb-4 font-weight-bold text-light"><a class="font-weight-bold text-light text-decoration-none" href="{{path('contact')}}">Contact</a></h6>
             <p><i class="fas fa-home mr-3"></i> 640 S Main St in downtown Los Angeles</p>
             <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
             <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
