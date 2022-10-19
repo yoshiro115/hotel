@@ -1,0 +1,12 @@
+{% block body %}
+
+<div class="d-flex justify-content-end">
+<form action="{{path('newsletter')}}" method='post'>
+<div class="input-group">
+    <label for="newsletter">Votre email</label>
+  <input type="email" id="newsletter" name="newsletter">
+  <button class="btn btn-secondary" type="submit">s'abonner</button>
+</div>
+</form>
+
+{% endblock %}

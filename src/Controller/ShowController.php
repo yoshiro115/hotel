@@ -55,7 +55,8 @@ class ShowController extends AbstractController
     }
     #[Route('/contact', name:'contact')]
     #[Route('/qui-sommes-nous', name:'who')]
-    public function who(Request $globals, $contact = null){
+    public function who(Request $globals, $contact = null): Response
+    {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($globals);
         if($form->isSubmitted() && $form->isValid())
@@ -79,5 +80,16 @@ class ShowController extends AbstractController
     public function acces(): Response
     {
         return $this->render('show/acces.html.twig');
+    }
+
+    #[Route('/newsletter/{route}', name:'newsletter')]
+    public function newsletter(Request $globals, $route)
+    {   
+        //  dd($globals->request->get('newsletter'));
+        if($globals->request->get('newsletter') != null){
+            $this->addFlash('success', "vous êtes maintenant inscrit a la newsletter");
+            return $this->redirectToRoute($route);
+        }
+        return $this->redirectToRoute($route);
     }
 }

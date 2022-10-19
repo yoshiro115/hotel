@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Accès {% endblock %}
+
+{% block body %}
+<div class="container my-5" style='min-height:60vh;'>
+
+<a href="{{path('app_main')}}" class="btn btn-primary col-12  my-2">Accueil</a>
+<a href="{{path('chambres')}}" class="btn btn-primary col-12 my-2">Chambres</a>
+<a href="{{path('cartes')}}" class="btn btn-primary col-12 my-2">restaurant</a>
+<a href="{{path('spas')}}" class="btn btn-primary col-12 my-2">Spas</a>
+<a href="{{path('who')}}" class="btn btn-primary col-12 my-2">Qui Sommes-nous ?</a>
+<a href="{{path('acces')}}" class="btn btn-primary col-12 my-2">Accès</a>
+<a href="{{path('contact')}}" class="btn btn-primary col-12 my-2">Contact</a>
+<a href="{{path('actu')}}" class="btn btn-primary col-12 my-2">Actualiés</a>
+<a href="{{path('avis')}}" class="btn btn-primary col-12 my-2">Avis</a>
+<a href="{{path('legacy')}}" class="btn btn-primary col-12 my-2">Mentions Légales</a>
+<a href="{{path('vente')}}" class="btn btn-primary col-12 my-2">Conditions Générales de Vente</a>
+
+
+
+</div>
+
+
+{% endblock %}

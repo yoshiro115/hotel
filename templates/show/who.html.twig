@@ -36,7 +36,7 @@
     
     
         <div class="my-5 text-center " >
-            <img src="https://cdn.pixabay.com/photo/2016/11/29/09/38/adult-1868750_1280.jpg" alt="" class="img-fluid" style="max-height:30vh;">
+            <img src="https://assets.teenvogue.com/photos/5697c97dca42c093459cb20b/16:9/w_2560%2Cc_limit/AHS_512_Guest_0719_hires2.jpg" alt="" class="rounded-circle img-fluid" style="max-height:30vh;">
             <h4 class="mt-2">Ferreira Vincent</h4>
             <h6 class="text-muted">Directeur de l'Hôtel Cortez</h6>
             <h6>06 52 48 40 35</h6>
@@ -47,11 +47,11 @@
         
     </div>
 
-    <div class="d-flex bg-dark align-items-center">
-        <img src="https://images.squarespace-cdn.com/content/v1/5beaec59cc8fed13655dc57c/1542558455167-66TBCVL7Z9ODENC0798F/0013_AHS5setphtLobbyWeb133.jpg?format=1500w" alt="" class="col-md-4" style="max-height:90vh; object-fit:cover;">
+    <div class="text-center d-flex justify-content-center align-items-center" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5beaec59cc8fed13655dc57c/1542558396176-C5QIKA3443LD58ZAMF3B/0002_AHS5setphtLobbyWeb057.jpg?format=1500w'); background-size: cover; background-position: center;">
         
-        <section class='col-md-8 mt-5 px-4 text-white' >
-        <h3 class="my-5 text-warning">Contactez-nous</h3>
+        <div class="bg-primary d-flex justify-content-center align-items-center py-5" style="--bs-bg-opacity: .75; min-width:68vw;">
+        <div class='col-md-8 pt-5 px-4 text-white ' >
+        <h3 class="my-5 text-warning ">Contactez-nous</h3>
         {{form_start(contact, {
             attr: {novalidate: 'novalidate'}
             })}}
@@ -78,44 +78,44 @@
         <button type="submit" class="btn btn-light mt-4 mb-2 col-md-12">envoyez</button>
 
         {{form_end(contact)}}
-        </section>
-
+        </div>
+        </div>
     </div>
 {% else %}
         
-        <div class="row bg-dark align-items-center">
-            <img src="https://images.squarespace-cdn.com/content/v1/5beaec59cc8fed13655dc57c/1542558455167-66TBCVL7Z9ODENC0798F/0013_AHS5setphtLobbyWeb133.jpg?format=1500w" alt="" class="col-xl-4" style="min-height:100vh; object-fit: cover;">
-           
-        <div class='col-xl-8 mt-1 text-white px-4' >
-            <h3 class="my-5 text-warning">Contactez-nous</h3>
-            {{form_start(contact, {
-                attr: {novalidate: 'novalidate'}
-                })}}
-            <div class="row">
-                <div class="col-md-6">
-                {{form_row(contact.nom)}}
-                </div>
-                <div class="col-md-6">
-                {{form_row(contact.prenom)}}
-                </div>
-            </div>
-            {{form_row(contact.email)}}
-            {{form_row(contact.telephone)}}
-            {{form_row(contact.categorie)}}
-            {{form_row(contact.sujet)}}
-            {{form_row(contact.content, {
-                label: "Votre demande",
-                attr: {
-                    rows: "10",
-                    placeholder: "contenu de votre demande"
-                }
+        <div class="text-center d-flex justify-content-center align-items-center" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5beaec59cc8fed13655dc57c/1542558396176-C5QIKA3443LD58ZAMF3B/0002_AHS5setphtLobbyWeb057.jpg?format=1500w'); background-size: cover; background-position: center;">
+        
+        <div class="bg-primary d-flex justify-content-center align-items-center py-5" style="--bs-bg-opacity: .75; min-width:68vw;">
+        <div class='col-md-8 pt-5 px-4 text-white ' >
+        <h3 class="my-5 text-warning ">Contactez-nous</h3>
+        {{form_start(contact, {
+            attr: {novalidate: 'novalidate'}
             })}}
-
-            <button type="submit" class="btn btn-light mt-3 mb-5 col-md-12">envoyez</button>
-
-            {{form_end(contact)}}
+        <div class="row">
+        <div class="col-md-6">
+        {{form_row(contact.nom)}}
         </div>
+        <div class="col-md-6">
+        {{form_row(contact.prenom)}}
+        </div>
+        </div>
+        {{form_row(contact.email)}}
+        {{form_row(contact.telephone)}}
+        {{form_row(contact.categorie)}}
+        {{form_row(contact.sujet)}}
+        {{form_row(contact.content, {
+            label: "Votre demande",
+            attr: {
+                rows: "10",
+                placeholder: "contenu de votre demande"
+            }
+        })}}
 
+        <button type="submit" class="btn btn-light mt-4 mb-2 col-md-12">envoyez</button>
+
+        {{form_end(contact)}}
+        </div>
+        </div>
     </div>
 {% endif %}
 {% endblock %}
