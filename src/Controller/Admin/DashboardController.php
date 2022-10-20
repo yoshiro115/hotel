@@ -24,7 +24,7 @@ class DashboardController extends AbstractDashboardController
         $this->routeBuilder = $routebuilder;
     }
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/yametekudasai", name="admin")
      */
     public function index(): Response
     {
