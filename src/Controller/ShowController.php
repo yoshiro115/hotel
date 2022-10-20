@@ -33,6 +33,7 @@ class ShowController extends AbstractController
         {
             $titre = str_replace('%20', ' ', $titre);
             $chambre = $repo->findOneBy(['titre' =>  $titre]);
+            return $this->redirectToRoute('show_chambre', ['id' => $chambre->getId()]);
         }
         $commande = new Commande;
         
